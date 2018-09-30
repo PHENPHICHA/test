@@ -1,25 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
- export default class Forecast extends React.Component{
-    render(){
-        return(
-            <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'flex-end'
-              }}>
-                  <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-                  <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-                  <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-              </View>
-            
-        );
-    }
+import { StyleSheet, Text, View} from 'react-native';
+import { white } from 'ansi-colors';
+
+export default class Forcast extends React.Component {
+
+  render() {
+    return (
+      <View style={styles.container}>
+          <Text style={styles.main}>{this.props.main}</Text>
+          <Text style={styles.des}>{this.props.description}</Text>
+          <Text style={styles.temp}>{this.props.temp} ํC</Text>
+      </View>
+    );
+  }
 }
 const styles = StyleSheet.create({
-    container: {
-        paddingTop: 24
+    container: { 
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     },
-    backdrop: {width: '100%',  height: '100%'},
-  }); 
+    main:{
+        fontSize: 35 ,
+        paddingTop: 10,
+        color : 'white',
+    },
+    des:{
+      fontSize: 15 ,
+      paddingTop: 25,
+      color : 'white',
+    },
+    temp:{
+      fontSize: 30 ,
+      paddingTop: 30,
+      paddingBottom:25,
+      color : 'white',
+    },
+});
